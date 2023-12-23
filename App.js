@@ -47,15 +47,15 @@ const App = () => {
         console.log('Error in getLocation:', error);
     }
   };
-  useEffect(()=>{
-      updateLocation()
-  },[])
+ // useEffect(()=>{
+ //     updateLocation()
+ // },[])
   
   // Fetch user's location every 1 minute
   useEffect(() => {
     const locationIntervalId = setInterval(() => {
       updateLocation();
-    }, 60000);
+    }, 600000);
 
     return () => clearInterval(locationIntervalId); // Cleanup on unmount
   }, []);
