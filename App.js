@@ -9,8 +9,8 @@ import { getLocationAccessPermission, getLocations } from './src/helperfuncation
 const { BatteryStatus } = NativeModules;
 const batteryStatusEmitter = new NativeEventEmitter(BatteryStatus);
 
+LogBox.ignoreAllLogs()
 const App = () => {
-  LogBox.ignoreAllLogs()
   const [userLocations, setUserLocations] = useState([]);
   const [triangleCoordinates, setTriangleCoordinates] = useState(null);
   const [isPowerSaveMode, setIsPowerSaveMode] = useState(false);
@@ -44,7 +44,7 @@ const App = () => {
             console.log('Location permission denied');
         }
     } catch (error) {
-        console.error('Error in getLocation:', error);
+        console.log('Error in getLocation:', error);
     }
   };
   useEffect(()=>{
